@@ -2,6 +2,7 @@
 const path = require('path');
 const electron = require('electron');
 const {ipcMain} = require('electron');
+const player = require('play-sound')({});
 const rocketchat = require('./rocketchat-adapter');
 const conf = require('./conf.json');
 
@@ -52,4 +53,9 @@ app.on('ready', () => {
 
 ipcMain.on('tooLoud', () => {
 	rocketchat.sendMessage(`@all : Too Much Noise ! If nothing change you'll receive an other notification in ${conf.secondsBetweenNotifications} seconds`);
+	player.play('warning.mp3', err => {
+		if (err) {
+			console.log(err);
+		}
+	});
 });
