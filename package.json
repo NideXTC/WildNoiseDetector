@@ -8,7 +8,11 @@
   "scripts": {
     "test": "xo",
     "start": "electron .",
-    "build": "electron-packager . --out=dist --asar --overwrite --all --icon"
+    "build:osx": "electron-packager . --out=dist --overwrite --platform=darwin --arch=x64 --icon=icons/mac/deer.icns",
+    "build:win64": "electron-packager . --out=dist --overwrite --platform=win32 --arch=x64 --icon=icons/win/deer.ico",
+    "build:arm": "electron-packager . --out=dist --overwrite --platform=linux --arch=armv7l",
+    "build:linux": "electron-packager . --out=dist --overwrite --platform=linux --arch=x64",
+    "build": "electron-packager . --out=dist --asar --overwrite --all --icon=icons/mac/deer.icns"
   },
   "dependencies": {
     "decibel-meter": "^2.0.0",
