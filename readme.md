@@ -1,3 +1,4 @@
+![deer](https://github.com/NideXTC/WildNoiseDetector/blob/master/icons/png/128x128.png)
 # WildNoiseDetector [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 > Notify people if the noise is too high. 
