@@ -13,6 +13,7 @@
   "dependencies": {
     "decibel-meter": "^2.0.0",
     "electron-debug": "^1.0.0",
+    "request": "^2.83.0",
     "rocketchat": "^0.57.3-alpha"
   },
   "devDependencies": {

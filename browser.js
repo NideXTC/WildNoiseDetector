@@ -1,5 +1,6 @@
 const DecibelMeter = require('decibel-meter');
 const {ipcRenderer} = require('electron');
+const request = require('request');
 const conf = require('./conf.json');
 
 const meter = new DecibelMeter('wildMicro');
@@ -14,7 +15,7 @@ let realDb;
 meter.connectTo('default'); 
 meter.listen();
 meter.on('sample', (dB, percent, value) => {
-	
+
 	realDb = Math.round(dB) + 100;
 
 	// notification 

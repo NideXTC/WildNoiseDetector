@@ -1,9 +1,8 @@
 'use strict';
 const electron = require('electron');
 const {ipcMain} = require('electron');
-
+const rocketchat = require('./rocketchatAdapter');
 const conf = require('./conf.json');
-
 const app = electron.app;
 
 // Adds debug features like hotkeys for triggering dev tools and reload
@@ -22,7 +21,8 @@ function createMainWindow() {
 	const win = new electron.BrowserWindow({
 		width: 200,
 		height: 150,
-		titleBarStyle: 'hidden'
+		titleBarStyle: 'hidden', 
+		alwaysOnTop : true
 	});
 
 	win.loadURL(`file://${__dirname}/index.html`);
@@ -45,10 +45,8 @@ app.on('activate', () => {
 
 app.on('ready', () => {
 	mainWindow = createMainWindow();
-	
-	// Connection to RocketChat
 });
 
 ipcMain.on('tooLoud', (event, arg) => {
-  console.log(conf.rocketchatUsername,conf.rocketchatPassword);
+	rocketchat.sendMessage(`@all : Too Much Noise ! If nothing change you'll receive an other notification in ${conf.secondsBetweenNotifications} seconds`);
 })
