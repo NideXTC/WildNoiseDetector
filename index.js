@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 const electron = require('electron');
 const {ipcMain} = require('electron');
 const rocketchat = require('./rocketchat-adapter');
@@ -23,7 +24,8 @@ function createMainWindow() {
 		width: 200,
 		height: 150,
 		titleBarStyle: 'hidden',
-		alwaysOnTop: true
+		alwaysOnTop: true,
+		icon: path.join(__dirname, 'icons/png/64x64.png')
 	});
 
 	win.loadURL(`file://${__dirname}/index.html`);
