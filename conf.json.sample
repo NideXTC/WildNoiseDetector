@@ -1,0 +1,10 @@
+{
+	"secondsBetweenNotifications" : 30, 
+	"maxDb" : 30, 
+
+	"rocketchatProtocol" : "http", 
+	"rocketchatHost" : "demo.rocket.chat", 
+	"rocketchatPort" : "80", 
+	"rocketchatUsername" : "bob", 
+	"rocketchatPassword" : "password"
+}

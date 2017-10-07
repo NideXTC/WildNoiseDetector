@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "decibel-meter": "^2.0.0",
-    "electron-debug": "^1.0.0"
+    "electron-debug": "^1.0.0",
+    "rocketchat": "^0.57.3-alpha"
   },
   "devDependencies": {
     "devtron": "^1.1.0",
