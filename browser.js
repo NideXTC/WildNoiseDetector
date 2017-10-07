@@ -1,38 +1,35 @@
-const DecibelMeter = require('decibel-meter');
 const {ipcRenderer} = require('electron');
-const request = require('request');
+const DecibelMeter = require('decibel-meter');
 const conf = require('./conf.json');
 
 const meter = new DecibelMeter('wildMicro');
 const level = document.querySelector('h1');
 const maxDisplay = document.querySelector('h2');
-let max = 0; 
+let max = 0;
 let readyToNotify = true;
 let realDb;
 
-
-
-meter.connectTo('default'); 
+meter.connectTo('default');
 meter.listen();
-meter.on('sample', (dB, percent, value) => {
-
+meter.on('sample', dB => {
 	realDb = Math.round(dB) + 100;
 
-	// notification 
-	if(realDb > conf.maxDb){
+	// Notification
+	if (realDb > conf.maxDb) {
 		console.log(readyToNotify, conf.secondsBetweenNotifications);
-		if(readyToNotify){
+		if (readyToNotify) {
 			ipcRenderer.send('tooLoud', 'ping');
 			readyToNotify = !readyToNotify;
-			setTimeout(() => readyToNotify = !readyToNotify, conf.secondsBetweenNotifications * 1000);
+			setTimeout(() => {
+				readyToNotify = !readyToNotify;
+			}, conf.secondsBetweenNotifications * 1000);
 		}
 	}
 
-	// rendering 
+	// Rendering
 	level.textContent = `${realDb} dB`;
-	if(realDb > max) {
+	if (realDb > max) {
 		max = realDb;
 		maxDisplay.textContent = `Max : ${max} dB`;
 	}
-
-}) 
+});
