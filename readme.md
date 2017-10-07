@@ -3,6 +3,9 @@
 
 > Notify people if the noise is too high. 
 
+In case of alert, the app notifies by : 
+* Message on Rocket Chat
+* Playing a song
 
 ## Dev
 
