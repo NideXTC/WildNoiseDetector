@@ -31,3 +31,5 @@ Builds the app for macOS, Linux, and Windows, using [electron-packager](https://
 ## License
 
 MIT © [NideXTC](https://github.com/NideXTC)
+
+[![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)
